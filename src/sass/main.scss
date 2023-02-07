@@ -1,0 +1,222 @@
+body.preload * {
+  animation-duration: 0s !important;
+  -webkit-animation-duration: 0s !important;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  scroll-behavior: smooth;
+  --nav-height: 160px;
+  font-family: "Comfortaa", cursive;
+}
+
+@import "util/media";
+@import "util/variables";
+@import "util/animations";
+
+.header {
+  width: 100%;
+  height: 170px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  top: 0;
+  z-index: 1000;
+  position: fixed;
+
+  .header-top {
+    z-index: 1001;
+    width: 100%;
+    display: flex;
+    &__button {
+      z-index: 1003;
+      cursor: pointer;
+      border: none;
+      background: none;
+      .fa-solid {
+        color: #fff;
+        padding: 0.5rem 2rem;
+        font-size: 4rem;
+        border-radius: 8px;
+      }
+    }
+    &__logo {
+      h1 {
+        color: #fff;
+        font-family: "Tangerine", cursive;
+      }
+    }
+  }
+  .nav {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    z-index: 1000;
+    .desktop-menu {
+      justify-content: center;
+      ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+        li {
+          padding: 1.5rem 1rem;
+          a {
+            color: #fff;
+            padding: 2rem 3rem;
+            text-transform: capitalize;
+            text-decoration: none;
+            font-size: 2rem;
+          }
+        }
+        li:hover {
+          outline: 1px solid rgb(206, 206, 206);
+        }
+      }
+    }
+    .mobile-menu {
+      display: none;
+      height: 100vh;
+      top: 0;
+
+      overflow-y: hidden;
+      backdrop-filter: blur(100px);
+      background-color: rgba(0, 0, 0, 0.381);
+      position: absolute;
+      z-index: 1000;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      ul {
+        width: 100%;
+        padding: 1rem 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+        li {
+          padding: 1.5rem;
+          a {
+            letter-spacing: 1px;
+            transition: 0.3s ease-in-out;
+            padding: 1rem 5rem;
+            color: #fff;
+            text-transform: capitalize;
+            text-decoration: none;
+            font-size: 2rem;
+          }
+        }
+        li:hover {
+          font-weight: 700;
+          border-bottom: 1px solid rgb(206, 206, 206);
+        }
+      }
+    }
+  }
+}
+
+//main
+
+.home {
+  position: sticky;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  width: 100%;
+  background-image: url("/src/img/denys-nevozhai-z0nVqfrOqWA-unsplash.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.wrapper {
+  display: flex;
+
+  max-width: 992px;
+  width: 90%;
+  height: 100vh;
+  &__content {
+    height: 90%;
+    transition: 0.5s ease-in;
+
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+
+    color: #fff;
+    h1 {
+      padding: 2rem 0;
+      font-size: 4rem;
+    }
+    p {
+      line-height: 3.2rem;
+      letter-spacing: 1px;
+      font-size: 1.6rem;
+    }
+    .read-more {
+      margin-top: 5rem;
+    }
+  }
+}
+//
+.destination {
+  backdrop-filter: blur(10px);
+  min-height: 100vh;
+  width: 100%;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(10, 10, 10, 0.712);
+  &__header {
+    padding: 3rem;
+    h2 {
+      font-size: 3rem;
+      text-align: center;
+      color: #fff;
+      padding: 3rem 2rem;
+    }
+  }
+  .cards-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 90%;
+    .place-card {
+      cursor: pointer;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 2px solid #fff;
+      background-position: center;
+      background-size: cover;
+      h1 {
+        font-size: 3rem;
+        text-transform: uppercase;
+        color: #fff;
+      }
+    }
+    .one {
+      background-image: url("/src/img/ione.jpg");
+    }
+    .two {
+      background-image: url("/src/img/dubai.jpg");
+    }
+    .three {
+      background-image: url("/src/img/kanada.jpg");
+    }
+    .four {
+      background-image: url("/src/img/romania.jpg");
+    }
+  }
+}

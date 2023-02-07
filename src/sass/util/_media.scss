@@ -1,0 +1,86 @@
+@media (max-width: 992px) {
+  //nav
+  .desktop-menu {
+    display: none;
+    &__hamburger-button {
+      padding: 2rem 0;
+    }
+  }
+  .header-top {
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    &__logo {
+      font-size: 3rem;
+    }
+  }
+  .home {
+    .wrapper {
+      justify-content: center;
+      align-items: center;
+      &__content {
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+  .destination {
+    .cards-box {
+      max-width: 800px;
+      .place-card {
+        margin: 2rem;
+        width: 90%;
+        height: 30vh;
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .nav {
+    padding: 1rem;
+  }
+
+  //nav
+  .header-top {
+    justify-content: center;
+    &__logo {
+      padding: 1rem;
+      font-size: 5rem;
+    }
+    justify-content: center;
+  }
+  .desktop-menu {
+    display: flex;
+  }
+  .fa-bars {
+    display: none;
+  }
+  .mobile-menu {
+    display: none;
+  }
+  .home {
+    .wrapper {
+      justify-content: start;
+      align-items: center;
+      &__content {
+        align-items: start;
+        justify-content: center;
+        width: 70%;
+      }
+    }
+  }
+
+  .destination {
+    padding: 3rem 0;
+    .cards-box {
+      max-width: 1200px;
+      .place-card {
+        margin: 2rem;
+        width: 40%;
+        height: 200px;
+      }
+    }
+  }
+}
