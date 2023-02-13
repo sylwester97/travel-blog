@@ -13,6 +13,7 @@ const mediaQueryD = window.matchMedia('(min-width: 992px)')
 
 
 const showMobileMenu = () => {
+    document.body.classList.toggle('sticky-body')
     if (menuMobile.classList.contains('hide')) {
         menuMobile.classList.remove('hide')
         menuMobile.style.display = 'flex'
@@ -24,7 +25,7 @@ const showMobileMenu = () => {
     } else {
         document.body.style.display = 'block'
         wrapperContent.classList.remove('wrapper-hide')
-        // menuMobile.style.display = 'none'
+        menuMobile.style.display = 'none'
         menuMobile.classList.remove('show')
         menuMobile.classList.add('hide')
         faIcon.classList.remove('fa-xmark')

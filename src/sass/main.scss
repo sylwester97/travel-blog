@@ -8,6 +8,7 @@ body.preload * {
   box-sizing: border-box;
 }
 html {
+  scroll-behavior: smooth;
   font-size: 62.5%;
 }
 body {
@@ -54,6 +55,7 @@ body {
     }
   }
   .nav {
+    // position: fixed;
     display: flex;
     justify-content: center;
     width: 100%;
@@ -76,7 +78,11 @@ body {
           }
         }
         li:hover {
+          border-radius: 8px;
           outline: 1px solid rgb(206, 206, 206);
+        }
+        li:active {
+          transform: translateY(2px);
         }
       }
     }
@@ -88,7 +94,7 @@ body {
       overflow-y: hidden;
       backdrop-filter: blur(100px);
       background-color: rgba(0, 0, 0, 0.381);
-      position: absolute;
+      position: fixed;
       z-index: 1000;
       width: 100%;
       justify-content: center;
@@ -167,11 +173,15 @@ body {
 }
 //
 .destination {
+  box-shadow: 0px -9px 24px 0px rgb(27, 27, 27);
+  // border-top: 3px dotted #fff;
   backdrop-filter: blur(10px);
   min-height: 100vh;
   width: 100%;
+  // z-index: 100000;
   flex-direction: column;
   display: flex;
+  position: relative;
   justify-content: center;
   align-items: center;
   background-color: rgba(10, 10, 10, 0.712);
@@ -192,20 +202,79 @@ body {
     width: 90%;
     .place-card {
       cursor: pointer;
-      position: relative;
       z-index: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border: 2px solid #fff;
-      background-position: center;
-      background-size: cover;
-      h1 {
-        font-size: 3rem;
-        text-transform: uppercase;
-        color: #fff;
+
+      perspective: 1000px;
+      .card-img {
+        position: relative;
+        border-radius: 8px;
+        display: flex;
+        z-index: 0;
+        justify-content: center;
+        align-items: center;
+        // border: 2px solid #fff;
+        background-position: center;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+
+        transition: transform 1s, opacity 1s;
+        h1 {
+          font-size: 3rem;
+          text-transform: uppercase;
+          color: #fff;
+        }
+      }
+      .card-info {
+        text-align: center;
+        padding: 3rem;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        transform: rotatex(180deg);
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        // align-items: space-between;
+        align-items: center;
+
+        opacity: 0;
+        transition: transform 1s, opacity 1s;
+        h1 {
+          font-size: 2.4rem;
+        }
+        p {
+          font-size: 1.6rem;
+        }
+        .card-button {
+          cursor: pointer;
+          right: 0;
+          background-color: rgba(161, 86, 16, 0.445);
+          padding: 0.5rem 2rem;
+          border-radius: 8px;
+          border: 1px solid gray;
+        }
+      }
+
+      &:hover {
+        .card-img {
+          transform: rotatex(-180deg);
+          opacity: 0;
+        }
+
+        .card-info {
+          transform: rotatex(0);
+          opacity: 1;
+        }
       }
     }
+
     .one {
       background-image: url("/src/img/ione.jpg");
     }

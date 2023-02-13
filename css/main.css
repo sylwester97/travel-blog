@@ -11,6 +11,7 @@ body.preload * {
 }
 
 html {
+  scroll-behavior: smooth;
   font-size: 62.5%;
 }
 
@@ -63,6 +64,11 @@ body {
     margin: 2rem;
     width: 90%;
     height: 30vh;
+  }
+  .destination .cards-box .place-card:hover {
+    -webkit-filter: brightness(110%);
+            filter: brightness(110%);
+    width: 91%;
   }
 }
 @media (min-width: 992px) {
@@ -118,6 +124,10 @@ body {
     width: 40%;
     height: 200px;
   }
+  .destination .cards-box .place-card:hover {
+    -webkit-filter: brightness(120%);
+            filter: brightness(120%);
+  }
 }
 .hero-shadow {
   position: absolute;
@@ -147,6 +157,10 @@ body {
   animation: bounce-in-top 1.1s both;
 }
 
+.sticky-body {
+  overflow: hidden;
+}
+
 .hide {
   -webkit-animation: bounce-out-top 1s both;
   animation: bounce-out-top 1s both;
@@ -158,6 +172,7 @@ body {
 }
 
 .main-button {
+  border-radius: 8px;
   letter-spacing: 1px;
   border: 1px solid #fff;
   cursor: pointer;
@@ -172,8 +187,6 @@ body {
   background: none;
   -webkit-transform: perspective(1px) translateZ(0);
           transform: perspective(1px) translateZ(0);
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
 }
 
 .main-button::before {
@@ -183,6 +196,7 @@ body {
   top: 0px;
   left: 0px;
   right: 0px;
+  border-radius: 8px;
   color: black;
   bottom: 0;
   background: #fff;
@@ -201,6 +215,11 @@ body {
 
 .main-button:hover {
   color: black;
+}
+
+.main-button:active {
+  -webkit-transform: translateY(4px);
+          transform: translateY(4px);
 }
 
 .header-bcg {
@@ -501,7 +520,12 @@ body {
   font-size: 2rem;
 }
 .header .nav .desktop-menu ul li:hover {
+  border-radius: 8px;
   outline: 1px solid rgb(206, 206, 206);
+}
+.header .nav .desktop-menu ul li:active {
+  -webkit-transform: translateY(2px);
+          transform: translateY(2px);
 }
 .header .nav .mobile-menu {
   display: none;
@@ -511,7 +535,7 @@ body {
   -webkit-backdrop-filter: blur(100px);
           backdrop-filter: blur(100px);
   background-color: rgba(0, 0, 0, 0.381);
-  position: absolute;
+  position: fixed;
   z-index: 1000;
   width: 100%;
   -webkit-box-pack: center;
@@ -609,6 +633,8 @@ body {
 }
 
 .destination {
+  -webkit-box-shadow: 0px -9px 24px 0px rgb(27, 27, 27);
+          box-shadow: 0px -9px 24px 0px rgb(27, 27, 27);
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
   min-height: 100vh;
@@ -620,6 +646,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  position: relative;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -653,25 +680,93 @@ body {
 }
 .destination .cards-box .place-card {
   cursor: pointer;
-  position: relative;
   z-index: 1;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+}
+.destination .cards-box .place-card .card-img {
+  position: relative;
+  border-radius: 8px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  z-index: 0;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border: 2px solid #fff;
   background-position: center;
   background-size: cover;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: opacity 1s, -webkit-transform 1s;
+  transition: opacity 1s, -webkit-transform 1s;
+  transition: transform 1s, opacity 1s;
+  transition: transform 1s, opacity 1s, -webkit-transform 1s;
 }
-.destination .cards-box .place-card h1 {
+.destination .cards-box .place-card .card-img h1 {
   font-size: 3rem;
   text-transform: uppercase;
   color: #fff;
+}
+.destination .cards-box .place-card .card-info {
+  text-align: center;
+  padding: 3rem;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  -webkit-transform: rotatex(180deg);
+          transform: rotatex(180deg);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  border-radius: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  opacity: 0;
+  -webkit-transition: opacity 1s, -webkit-transform 1s;
+  transition: opacity 1s, -webkit-transform 1s;
+  transition: transform 1s, opacity 1s;
+  transition: transform 1s, opacity 1s, -webkit-transform 1s;
+}
+.destination .cards-box .place-card .card-info h1 {
+  font-size: 2.4rem;
+}
+.destination .cards-box .place-card .card-info p {
+  font-size: 1.6rem;
+}
+.destination .cards-box .place-card .card-info .card-button {
+  cursor: pointer;
+  right: 0;
+  background-color: rgba(161, 86, 16, 0.445);
+  padding: 0.5rem 2rem;
+  border-radius: 8px;
+  border: 1px solid gray;
+}
+.destination .cards-box .place-card:hover .card-img {
+  -webkit-transform: rotatex(-180deg);
+          transform: rotatex(-180deg);
+  opacity: 0;
+}
+.destination .cards-box .place-card:hover .card-info {
+  -webkit-transform: rotatex(0);
+          transform: rotatex(0);
+  opacity: 1;
 }
 .destination .cards-box .one {
   background-image: url("/src/img/ione.jpg");

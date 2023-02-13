@@ -33,6 +33,10 @@
         width: 90%;
         height: 30vh;
       }
+      .place-card:hover {
+        filter: brightness(110%);
+        width: 91%;
+      }
     }
   }
 }
@@ -80,6 +84,10 @@
         margin: 2rem;
         width: 40%;
         height: 200px;
+      }
+      .place-card:hover {
+        filter: brightness(120%);
+        // border: 3px solid #fff;
       }
     }
   }
